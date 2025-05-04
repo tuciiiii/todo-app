@@ -1,26 +1,35 @@
+const taskInput = document.getElementById('taskInput');
+const tasksContainer = document.getElementById('tasks');
+
 function addTask() {
-    const taskInput = document.getElementById("taskInput");
-    const taskText = taskInput.value.trim();
-  
-    if (taskText === "") return;
-  
-    const taskDiv = document.createElement("div");
-    taskDiv.className = "task";
-    taskDiv.innerHTML = `
-      <span>${taskText}</span>
-      <button onclick="removeTask(this)">×</button>
-    `;
-  
-    document.getElementById("tasks").appendChild(taskDiv);
-    taskInput.value = "";
+  const taskText = taskInput.value.trim();
+
+  if (taskText === '') {
+    alert('Please enter a task!');
+    return;
   }
-  
-  function removeTask(button) {
-    const task = button.parentElement;
-    task.remove();
-  }
-  
-  document.getElementById("taskInput").addEventListener("keypress", function (e) {
-    if (e.key === "Enter") addTask();
+
+  const task = document.createElement('div');
+  task.className = 'task';
+
+  const taskContent = document.createElement('span');
+  taskContent.textContent = taskText;
+
+  const deleteBtn = document.createElement('button');
+  deleteBtn.innerHTML = '✖';
+  deleteBtn.onclick = () => task.remove();
+
+  task.appendChild(taskContent);
+  task.appendChild(deleteBtn);
+
+  tasksContainer.appendChild(task);
+
+  // Animate the appearance
+  task.style.opacity = '0';
+  requestAnimationFrame(() => {
+    task.style.transition = 'opacity 0.4s ease';
+    task.style.opacity = '1';
   });
-  
+
+  taskInput.value = '';
+}
