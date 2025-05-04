@@ -147,4 +147,114 @@ body {
   }
 }
 
+  /* Add CSS variables for theming */
+:root {
+    --primary-color: #ff3399;
+    --hover-color: #e60073;
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --text-color: #fff;
+  }
   
+  /* Improved scrollbar styling */
+  .tasks::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .tasks::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+  
+  .tasks::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+  }
+  
+  /* Enhanced focus states */
+  .input-group input:focus-visible,
+  .input-group button:focus-visible {
+    outline: 2px solid var(--text-color);
+    outline-offset: 2px;
+  }
+  
+  /* Better touch targets */
+  .input-group button {
+    min-width: 80px;
+    padding: 14px 24px;
+  }
+  
+  @media (max-width: 480px) {
+    .input-group button {
+      padding: 14px 18px;
+    }
+  }
+  
+  /* Richer hover effects */
+  .task {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .task:hover {
+    transform: translateX(8px);
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Delete button animation */
+  .task button {
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+  }
+  
+  .task button:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Enhanced glass effect */
+  .container {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.15) 100%
+    );
+    box-shadow:
+      0 8px 32px 0 rgba(255, 105, 180, 0.15),
+      0 4px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Loading animation */
+  @keyframes pulse {
+    50% { opacity: 0.5; }
+  }
+  
+  .loading {
+    animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  /* Improved color contrast */
+  .task button {
+    color: #ff99cc;
+  }
+  
+  .task button:hover {
+    color: #ff3385;
+  }
+  
+  /* Status indicators */
+  .task.completed {
+    opacity: 0.7;
+    position: relative;
+  }
+  
+  .task.completed::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.6;
+  }
