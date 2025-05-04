@@ -1,21 +1,26 @@
-const form = document.getElementById('todo-form');
-const input = document.getElementById('todo-input');
-const list = document.getElementById('todo-list');
-
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  const text = input.value.trim();
-  if (text !== '') {
-    addTodo(text);
-    input.value = '';
+function addTask() {
+    const taskInput = document.getElementById("taskInput");
+    const taskText = taskInput.value.trim();
+  
+    if (taskText === "") return;
+  
+    const taskDiv = document.createElement("div");
+    taskDiv.className = "task";
+    taskDiv.innerHTML = `
+      <span>${taskText}</span>
+      <button onclick="removeTask(this)">×</button>
+    `;
+  
+    document.getElementById("tasks").appendChild(taskDiv);
+    taskInput.value = "";
   }
-});
-
-function addTodo(text) {
-  const li = document.createElement('li');
-  li.textContent = text;
-  li.addEventListener('click', () => {
-    li.classList.toggle('done');
+  
+  function removeTask(button) {
+    const task = button.parentElement;
+    task.remove();
+  }
+  
+  document.getElementById("taskInput").addEventListener("keypress", function (e) {
+    if (e.key === "Enter") addTask();
   });
-  list.appendChild(li);
-}
+  
