@@ -1,142 +1,260 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-:root {
-    --primary: #FF3D9A;
-    --background: #FFE6F0;
-    --glass: rgba(255, 255, 255, 0.15);
-    --text: #FFFFFF;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
-    background: var(--background);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+  background: #ffe6f0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .container {
-    background: var(--glass);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.1);
-    padding: 40px;
-    width: 100%;
-    max-width: 440px;
-    color: var(--text);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 30px;
+  box-shadow:
+    0 15px 25px rgba(255, 105, 180, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 50px 30px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
 }
 
-h1 {
-    font-size: 28px;
-    margin-bottom: 32px;
-    font-weight: 700;
-    text-align: center;
+.container h1 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .input-group {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 32px;
+  display: flex;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 18px;
+  padding: 5px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4),
+              inset 0 -1px 2px rgba(0, 0, 0, 0.05);
 }
 
-input {
-    flex: 1;
-    padding: 14px 20px;
-    border: none;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.25);
-    color: var(--text);
-    font-size: 16px;
-    outline: none;
-    transition: 0.3s ease;
+.input-group input {
+  flex: 1;
+  border: none;
+  padding: 14px 18px;
+  outline: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
-input::placeholder {
-    color: rgba(255, 255, 255, 0.8);
+.input-group input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
 }
 
-input:focus {
-    box-shadow: 0 0 0 2px var(--primary);
+.input-group input:focus {
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 8px #ff66b2;
+  border-radius: 15px;
 }
 
-button.add-btn {
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 14px 24px;
-    border-radius: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s ease;
+.input-group button {
+  border: none;
+  background-color: #ff3399;
+  color: white;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
 }
 
-button.add-btn:hover {
-    opacity: 0.9;
-    transform: translateY(-1px);
+.input-group button:hover {
+  background-color: #e60073;
 }
 
 .tasks {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-height: 400px;
-    overflow-y: auto;
-    padding-right: 8px;
+  margin-top: 30px;
+  text-align: left;
+  max-height: 250px;
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 
 .task {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 16px;
-    border-radius: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    animation: fadeIn 0.4s ease;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  padding: 10px 15px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: 0.3s ease;
+  animation: fadeIn 0.4s ease;
 }
 
 .task:hover {
-    background: rgba(255, 255, 255, 0.15);
+  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.25);
 }
 
-.task button.delete {
-    background: none;
-    border: none;
-    color: rgba(255, 255, 255, 0.6);
-    cursor: pointer;
-    padding: 4px;
-    transition: 0.3s ease;
+.task button {
+  background: none;
+  border: none;
+  color: #ffd6e8;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
 
-.task button.delete:hover {
-    color: var(--primary);
-    transform: scale(1.1);
+.task button:hover {
+  color: #ff66b2;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Scrollbar Styling */
-::-webkit-scrollbar {
-    width: 6px;
+@media (max-width: 480px) {
+  .container {
+    padding: 40px 20px;
+  }
+
+  .container h1 {
+    font-size: 1.8rem;
+  }
+
+  .input-group input {
+    font-size: 0.95rem;
+  }
 }
 
-::-webkit-scrollbar-track {
+  /* Add CSS variables for theming */
+:root {
+    --primary-color: #ff3399;
+    --hover-color: #e60073;
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --text-color: #fff;
+  }
+  
+  /* Improved scrollbar styling */
+  .tasks::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .tasks::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.1);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary);
     border-radius: 4px;
-}
+  }
+  
+  .tasks::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+  }
+  
+  /* Enhanced focus states */
+  .input-group input:focus-visible,
+  .input-group button:focus-visible {
+    outline: 2px solid var(--text-color);
+    outline-offset: 2px;
+  }
+  
+  /* Better touch targets */
+  .input-group button {
+    min-width: 80px;
+    padding: 14px 24px;
+  }
+  
+  @media (max-width: 480px) {
+    .input-group button {
+      padding: 14px 18px;
+    }
+  }
+  
+  /* Richer hover effects */
+  .task {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .task:hover {
+    transform: translateX(8px);
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Delete button animation */
+  .task button {
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+  }
+  
+  .task button:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Enhanced glass effect */
+  .container {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.15) 100%
+    );
+    box-shadow:
+      0 8px 32px 0 rgba(255, 105, 180, 0.15),
+      0 4px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Loading animation */
+  @keyframes pulse {
+    50% { opacity: 0.5; }
+  }
+  
+  .loading {
+    animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  /* Improved color contrast */
+  .task button {
+    color: #ff99cc;
+  }
+  
+  .task button:hover {
+    color: #ff3385;
+  }
+  
+  /* Status indicators */
+  .task.completed {
+    opacity: 0.7;
+    position: relative;
+  }
+  
+  .task.completed::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.6;
+  }
