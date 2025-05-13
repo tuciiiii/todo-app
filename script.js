@@ -24,7 +24,6 @@ function addTask() {
 
   tasksContainer.appendChild(task);
 
-  // Animate the appearance
   task.style.opacity = '0';
   requestAnimationFrame(() => {
     task.style.transition = 'opacity 0.4s ease';

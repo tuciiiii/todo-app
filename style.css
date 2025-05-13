@@ -147,7 +147,6 @@ body {
   }
 }
 
-  /* Add CSS variables for theming */
 :root {
     --primary-color: #ff3399;
     --hover-color: #e60073;
@@ -155,7 +154,6 @@ body {
     --text-color: #fff;
   }
   
-  /* Improved scrollbar styling */
   .tasks::-webkit-scrollbar {
     width: 8px;
   }
@@ -170,14 +168,12 @@ body {
     border-radius: 4px;
   }
   
-  /* Enhanced focus states */
   .input-group input:focus-visible,
   .input-group button:focus-visible {
     outline: 2px solid var(--text-color);
     outline-offset: 2px;
   }
   
-  /* Better touch targets */
   .input-group button {
     min-width: 80px;
     padding: 14px 24px;
@@ -189,7 +185,6 @@ body {
     }
   }
   
-  /* Richer hover effects */
   .task {
     position: relative;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -200,7 +195,6 @@ body {
     box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
   }
   
-  /* Delete button animation */
   .task button {
     padding: 8px;
     border-radius: 50%;
@@ -212,7 +206,6 @@ body {
     background: rgba(255, 255, 255, 0.1);
   }
   
-  /* Enhanced glass effect */
   .container {
     background: linear-gradient(
       135deg,
@@ -224,7 +217,6 @@ body {
       0 4px 8px rgba(0, 0, 0, 0.08);
   }
   
-  /* Loading animation */
   @keyframes pulse {
     50% { opacity: 0.5; }
   }
@@ -233,7 +225,6 @@ body {
     animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
   
-  /* Improved color contrast */
   .task button {
     color: #ff99cc;
   }
@@ -242,7 +233,6 @@ body {
     color: #ff3385;
   }
   
-  /* Status indicators */
   .task.completed {
     opacity: 0.7;
     position: relative;
